@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -68,6 +69,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(MainActivity.this, OptionsActivity.class);
+            startActivity(intent);
             return true;
         }
 
@@ -83,16 +86,33 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_main_page) {
 
         } else if (id == R.id.nav_messages) {
-
+            Intent intent = new Intent(MainActivity.this, MessageActivity.class);
+            startActivity(intent);
+            return true;
         } else if (id == R.id.nav_anouncements) {
+            Intent intent = new Intent(MainActivity.this, AnouncementActivity.class);
+            startActivity(intent);
+            return true;
 
         } else if (id == R.id.nav_votes) {
+            Intent intent = new Intent(MainActivity.this, VoteActivity.class);
+            startActivity(intent);
+            return true;
 
         } else if (id == R.id.nav_finance) {
+            Intent intent = new Intent(MainActivity.this, FinanceActivity.class);
+            startActivity(intent);
+            return true;
 
         } else if (id == R.id.nav_register) {
+            Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+            startActivity(intent);
+            return true;
 
         } else if (id == R.id.nav_about) {
+            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
+            return true;
 
         } else if (id == R.id.nav_exit) {
             finish();

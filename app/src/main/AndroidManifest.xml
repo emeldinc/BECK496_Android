@@ -19,6 +19,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".OptionsActivity" />
+        <activity
+            android:name=".MessageActivity"
+            android:label="@string/title_activity_message"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AnouncementActivity"
+            android:label="@string/title_activity_anouncement"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".VoteActivity"
+            android:label="@string/title_activity_vote"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FinanceActivity"
+            android:label="@string/title_activity_finance"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".AboutActivity"></activity>
     </application>
 
 </manifest>
