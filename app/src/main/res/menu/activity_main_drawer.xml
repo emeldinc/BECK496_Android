@@ -25,10 +25,6 @@
             android:icon="@drawable/ic_baseline_attach_money_24px"
             android:title="Aidat Takibi" />
         <item
-            android:id="@+id/nav_register"
-            android:icon="@drawable/ic_baseline_group_add_24px"
-            android:title="Kaydol" />
-        <item
             android:id="@+id/nav_login"
             android:icon="@drawable/ic_baseline_group_add_24px"
             android:title="Giriş Yap" />

@@ -125,7 +125,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 bundle.putString("lastname", lastname);
                 bundle.putString("role", role);
                 bundle.putString("house_id", house_id);
-                Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 intent.putExtra("user", bundle);
                 startActivity(intent);
 
