@@ -23,6 +23,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -105,6 +109,29 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         @Override
         protected void onPostExecute(String result) {
             Log.d(TAG, "result= " + result);
+            try {
+                JSONObject json = new JSONObject(result);
+                Bundle bundle = new Bundle();
+
+                User user = new User();
+                String username = user.setUsername(json.getString("username"));
+                String firstname = user.setFirstname(json.getString("firstname"));
+                String lastname = user.setLastname(json.getString("lastname"));
+                String role = user.setRole(json.getString("role"));
+                String house_id = user.setHouse_id(json.getString("house_id"));
+
+                bundle.putString("username", username);
+                bundle.putString("firstname", firstname);
+                bundle.putString("lastname", lastname);
+                bundle.putString("role", role);
+                bundle.putString("house_id", house_id);
+                Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                intent.putExtra("user", bundle);
+                startActivity(intent);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
