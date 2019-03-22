@@ -33,7 +33,50 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_anouncement" />
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="200dp"
+            android:text="DUYURU EKLE" />
+        <EditText
+            android:id="@+id/baslikInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_below="@+id/text"
+            android:layout_marginTop="250dp"
+            android:hint="Başlık" />
+
+        <EditText
+            android:id="@+id/aciklamaInput"
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/baslikInput"
+            android:layout_marginTop="50dp"
+            android:hint="Açıklama" />
+
+        <Button
+            android:id="@+id/kaydetButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="150dp"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/aciklamaInput"
+            android:background="@android:color/white"
+            android:text="Kaydet" />
+
+    </RelativeLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
