@@ -21,23 +21,60 @@
         android:layout_height="wrap_content"
         android:text="Geri" />
 
-    <RelativeLayout
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="155dp"
-            android:layout_marginTop="120dp"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/textView7"
+        <Button
+            android:id="@+id/duyurular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:text="Duyurular" />
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="200dp"
+            android:background="@color/colorAccent"
+            android:text="DUYURULAR" />
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_below="@+id/duyurular"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="260dp"
+            android:text="DUYURU EKLE" />
+        <EditText
+            android:id="@+id/baslikInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_below="@+id/text"
+            android:layout_marginTop="290dp"
+            android:hint="Başlık" />
+
+        <EditText
+            android:id="@+id/aciklamaInput"
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/baslikInput"
+            android:layout_marginTop="50dp"
+            android:hint="Açıklama" />
+
+        <Button
+            android:id="@+id/kaydetButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="150dp"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/aciklamaInput"
+            android:background="@android:color/white"
+            android:text="Kaydet" />
+
     </RelativeLayout>
 
 

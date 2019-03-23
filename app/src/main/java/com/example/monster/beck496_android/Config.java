@@ -4,6 +4,9 @@ public class Config {
     //URL to our login.php file
     public static final String LOGIN_URL = "http://beckdoors.com/Android_API/login.php";
     public static final String DUYURU_URL = "http://beckdoors.com/Android_API/duyurular.php";
+    public static final String FINANCE_URL = "http://beckdoors.com/Android_API/finance.php";
+    public static final String VOTE_URL = "http://beckdoors.com/Android_API/oylama.php";
+
 
     //Keys for email and password as defined in our $_POST['key'] in login.php
     public static final String KEY_EMAIL = "email";

@@ -120,6 +120,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     String firstname = user.setFirstname(json.getString("firstname"));
                     String lastname = user.setLastname(json.getString("lastname"));
                     String role = user.setRole(json.getString("role"));
+                    String user_id = user.setUser_id(json.getString("user_id"));
                     JSONArray Data = json.getJSONArray("house_id");
                     ArrayList<String> house_nos = new ArrayList<>();
                     ArrayList<String> house_ids = new ArrayList<>();
@@ -139,6 +140,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     bundle.putString("role", role);
                     bundle.putStringArrayList("house_nos", house_nos);
                     bundle.putStringArrayList("house_ids", house_ids);
+                    bundle.putString("user_id", user_id);
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.putExtra("user", bundle);
                     startActivity(intent);

@@ -64,7 +64,8 @@ public class MainActivity extends AppCompatActivity
         String firstname = user.setFirstname(bundle.getString("firstname"));
         String lastname = user.setLastname(bundle.getString("lastname"));
         String role = user.setRole(bundle.getString("role"));
-        ArrayList<String> house_ids = user.setHouse_ids(bundle.getStringArrayList("house_ids"));
+        final String user_id = bundle.getString("user_id");
+        final ArrayList<String> house_ids = user.setHouse_ids(bundle.getStringArrayList("house_ids"));
         ArrayList<String> house_nos = user.setHouse_nos(bundle.getStringArrayList("house_nos"));
 
         //Showing the current logged in email to textview
@@ -77,6 +78,16 @@ public class MainActivity extends AppCompatActivity
             Button myButton = new Button(this);
             myButton.setText(house_nos.get(i));
             ll.addView(myButton, lp);
+            final int finalI = i;
+            myButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(MainActivity.this, AnouncementActivity.class);
+                    intent.putExtra("houseId", house_ids.get(finalI));
+                    intent.putExtra("user_id", user_id);
+                    startActivity(intent);
+                }
+            });
         }
     }
 
@@ -117,6 +128,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_finance) {
             Intent intent = new Intent(MainActivity.this, FinanceActivity.class);
+            intent.putExtra("user", bundle);
             startActivity(intent);
             return true;
 

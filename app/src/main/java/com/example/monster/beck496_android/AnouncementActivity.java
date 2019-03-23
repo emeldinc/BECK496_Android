@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -44,9 +45,29 @@ public class AnouncementActivity extends AppCompatActivity {
         String role = user.setRole(bundle.getString("role"));
         ArrayList<String> house_ids = user.setHouse_ids(bundle.getStringArrayList("house_ids"));
         ArrayList<String> house_nos = user.setHouse_nos(bundle.getStringArrayList("house_nos"));
+        String user_id = bundle.getString("user_id");
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
+
+        String house_id =intent.getStringExtra("houseId");
+        baslikInput = (EditText) findViewById(R.id.baslikInput);
+        aciklamaInput = (EditText) findViewById(R.id.aciklamaInput);
+        kaydetButton = (Button) findViewById(R.id.kaydetButton);
+        kaydetButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                baslik = baslikInput.getText().toString();
+                aciklama = aciklamaInput.getText().toString();
+                String text = baslik + "\n"+ aciklama;
+                showToast(text);
+
+            }
+
+        });
+
+        //post(house_id);
+
+
 
         geriButton = (Button) findViewById(R.id.button_geri);
         geriButton.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +79,12 @@ public class AnouncementActivity extends AppCompatActivity {
         });
 
     }
+//    private void post(String house_id){
+//        //String url = Config.DUYURU_URL + "?house_id=" + house_id + "&user_id=" + user_id;
+//        Log.d("url: ", url);
+//        new AnouncementActivity.GetJSONTask().execute(url);
+//        Log.d(TAG, "response : " + response);
+//    }
     private void get(String house_id){
         String url = Config.DUYURU_URL + "?duyuru=" + house_id;
         Log.d("url: ", url);
@@ -121,5 +148,8 @@ public class AnouncementActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+    }
+    private void showToast(String message){
+        Toast.makeText(AnouncementActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 }
