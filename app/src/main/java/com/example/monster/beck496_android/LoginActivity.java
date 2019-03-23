@@ -112,35 +112,40 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Log.d(TAG, "result= " + result);
             try {
                 JSONObject json = new JSONObject(result);
-                Bundle bundle = new Bundle();
+                if(!json.getBoolean("error")) {
+                    Bundle bundle = new Bundle();
 
-                User user = new User();
-                String username = user.setUsername(json.getString("username"));
-                String firstname = user.setFirstname(json.getString("firstname"));
-                String lastname = user.setLastname(json.getString("lastname"));
-                String role = user.setRole(json.getString("role"));
-                JSONArray Data = json.getJSONArray("house_id");
-                ArrayList<String> house_nos = new ArrayList<>();
-                ArrayList<String> house_ids = new ArrayList<>();
-                for (int i = 0; i < Data.length(); i++) {
-                    JSONObject jsonObj2 = Data.getJSONObject(i);
-                    house_ids.add(jsonObj2.getString("daire_id"));
-                    house_nos.add(jsonObj2.getString("daire_no"));
+                    User user = new User();
+                    String username = user.setUsername(json.getString("username"));
+                    String firstname = user.setFirstname(json.getString("firstname"));
+                    String lastname = user.setLastname(json.getString("lastname"));
+                    String role = user.setRole(json.getString("role"));
+                    JSONArray Data = json.getJSONArray("house_id");
+                    ArrayList<String> house_nos = new ArrayList<>();
+                    ArrayList<String> house_ids = new ArrayList<>();
+                    for (int i = 0; i < Data.length(); i++) {
+                        JSONObject jsonObj2 = Data.getJSONObject(i);
+                        house_ids.add(jsonObj2.getString("daire_id"));
+                        house_nos.add(jsonObj2.getString("daire_no"));
+                    }
+
+
+                    user.setHouse_nos(house_nos);
+                    user.setHouse_ids(house_ids);
+
+                    bundle.putString("username", username);
+                    bundle.putString("firstname", firstname);
+                    bundle.putString("lastname", lastname);
+                    bundle.putString("role", role);
+                    bundle.putStringArrayList("house_nos", house_nos);
+                    bundle.putStringArrayList("house_ids", house_ids);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("user", bundle);
+                    startActivity(intent);
                 }
-
-
-                user.setHouse_nos(house_nos);
-                user.setHouse_ids(house_ids);
-
-                bundle.putString("username", username);
-                bundle.putString("firstname", firstname);
-                bundle.putString("lastname", lastname);
-                bundle.putString("role", role);
-                bundle.putStringArrayList("house_nos", house_nos);
-                bundle.putStringArrayList("house_ids", house_ids);
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                intent.putExtra("user", bundle);
-                startActivity(intent);
+                else {
+                    Toast.makeText(LoginActivity.this, "Username or password is wrong...", Toast.LENGTH_SHORT).show();
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();
