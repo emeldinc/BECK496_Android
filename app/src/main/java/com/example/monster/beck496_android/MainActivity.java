@@ -21,6 +21,8 @@ import android.view.MenuItem;
 import android.content.Intent;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -57,10 +59,12 @@ public class MainActivity extends AppCompatActivity
         String firstname = user.setFirstname(bundle.getString("firstname"));
         String lastname = user.setLastname(bundle.getString("lastname"));
         String role = user.setRole(bundle.getString("role"));
-        String house_id = user.setHouse_id(bundle.getString("house_id"));
+        ArrayList<String> house_ids = user.setHouse_ids(bundle.getStringArrayList("house_ids"));
+        ArrayList<String> house_nos = user.setHouse_nos(bundle.getStringArrayList("house_nos"));
 
         //Showing the current logged in email to textview
         textView.setText(firstname + " " + lastname);
+        textView.append("\n" + "Evlerim:" + house_nos);
 
 
     }

@@ -125,15 +125,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     array[i] = (String)arr.get(i).toString();
                 }
                 user.setHouses(array);
-                ArrayList<String> housenos = user.getHouse_nos();
-                ArrayList<String> houseids = user.getHouse_ids();
+                ArrayList<String> house_nos = user.getHouse_nos();
+                ArrayList<String> house_ids = user.getHouse_ids();
 
                 bundle.putString("username", username);
                 bundle.putString("firstname", firstname);
                 bundle.putString("lastname", lastname);
                 bundle.putString("role", role);
-                bundle.putStringArrayList("housenos", housenos);
-                bundle.putStringArrayList("houseids", houseids);
+                bundle.putStringArrayList("house_nos", house_nos);
+                bundle.putStringArrayList("house_ids", house_ids);
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 intent.putExtra("user", bundle);
                 startActivity(intent);

@@ -72,6 +72,17 @@ class User {
 
 
     private String role;
+
+    public ArrayList<String> setHouse_ids(ArrayList<String> house_ids) {
+        this.house_ids = house_ids;
+        return house_ids;
+    }
+
+    public ArrayList<String> setHouse_nos(ArrayList<String> house_nos) {
+        this.house_nos = house_nos;
+        return house_nos;
+    }
+
     private ArrayList<String> house_ids;
 
 
