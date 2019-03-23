@@ -1,5 +1,7 @@
 package com.example.monster.beck496_android;
 
+import java.util.ArrayList;
+
 class User {
     private String user_id;
     private String username;
@@ -51,16 +53,28 @@ class User {
         return role;
     }
 
-    public String getHouse_id() {
-        return house_id;
+    public ArrayList<String> getHouse_ids() {
+        return house_ids;
     }
 
-    public String setHouse_id(String house_id) {
-        this.house_id = house_id;
-        return house_id;
+    public void setHouses(String[] houses) {
+        for (String house: houses)
+        {
+            String[] arr = house.split(" ");
+            house_ids.add(arr[0]);
+            house_nos.add(arr[1]);
+        }
+
     }
+    public ArrayList<String> getHouse_nos() {
+        return house_nos;
+    }
+
 
     private String role;
-    private String house_id;
+    private ArrayList<String> house_ids;
+
+
+    private ArrayList<String> house_nos;
 
 }

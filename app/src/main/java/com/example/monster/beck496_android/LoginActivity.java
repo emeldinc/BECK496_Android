@@ -28,6 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -118,13 +119,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String firstname = user.setFirstname(json.getString("firstname"));
                 String lastname = user.setLastname(json.getString("lastname"));
                 String role = user.setRole(json.getString("role"));
-                String house_id = user.setHouse_id(json.getString("house_id"));
+                JSONArray arr = json.getJSONArray("house_id");
+                String[] array = new String[arr.length()];
+                for (int i = 0; i < array.length; i++) {
+                    array[i] = (String)arr.get(i).toString();
+                }
+                user.setHouses(array);
+                ArrayList<String> housenos = user.getHouse_nos();
+                ArrayList<String> houseids = user.getHouse_ids();
 
                 bundle.putString("username", username);
                 bundle.putString("firstname", firstname);
                 bundle.putString("lastname", lastname);
                 bundle.putString("role", role);
-                bundle.putString("house_id", house_id);
+                bundle.putStringArrayList("housenos", housenos);
+                bundle.putStringArrayList("houseids", houseids);
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 intent.putExtra("user", bundle);
                 startActivity(intent);
