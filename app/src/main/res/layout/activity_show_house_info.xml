@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShowHouseInfo">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="409dp"
+        android:layout_height="98dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="404dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:layout_editor_absoluteX="5dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="404dp"
+        android:layout_height="134dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        tools:layout_editor_absoluteX="5dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/fullname"
+        android:layout_width="396dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/date"
+        tools:layout_editor_absoluteX="10dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Geri"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="515dp"
+        tools:ignore="MissingConstraints" />
+</android.support.constraint.ConstraintLayout>

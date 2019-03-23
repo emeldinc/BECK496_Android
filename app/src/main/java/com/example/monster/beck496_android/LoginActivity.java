@@ -144,7 +144,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     startActivity(intent);
                 }
                 else {
-                    Toast.makeText(LoginActivity.this, "Username or password is wrong...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Kullanıcı adı veya şifre hatalı...", Toast.LENGTH_SHORT).show();
                 }
 
             } catch (JSONException e) {
