@@ -1,5 +1,11 @@
 package com.example.monster.beck496_android;
 
+import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 class User {
@@ -57,15 +63,7 @@ class User {
         return house_ids;
     }
 
-    public void setHouses(String[] houses) {
-        for (String house: houses)
-        {
-            String[] arr = house.split(" ");
-            house_ids.add(arr[0]);
-            house_nos.add(arr[1]);
-        }
 
-    }
     public ArrayList<String> getHouse_nos() {
         return house_nos;
     }

@@ -119,14 +119,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String firstname = user.setFirstname(json.getString("firstname"));
                 String lastname = user.setLastname(json.getString("lastname"));
                 String role = user.setRole(json.getString("role"));
-                JSONArray arr = json.getJSONArray("house_id");
-                String[] array = new String[arr.length()];
-                for (int i = 0; i < array.length; i++) {
-                    array[i] = (String)arr.get(i).toString();
+                JSONArray Data = json.getJSONArray("house_id");
+                ArrayList<String> house_nos = new ArrayList<>();
+                ArrayList<String> house_ids = new ArrayList<>();
+                for (int i = 0; i < Data.length(); i++) {
+                    JSONObject jsonObj2 = Data.getJSONObject(i);
+                    house_ids.add(jsonObj2.getString("daire_id"));
+                    house_nos.add(jsonObj2.getString("daire_no"));
                 }
-                user.setHouses(array);
-                ArrayList<String> house_nos = user.getHouse_nos();
-                ArrayList<String> house_ids = user.getHouse_ids();
+
+
+                user.setHouse_nos(house_nos);
+                user.setHouse_ids(house_ids);
 
                 bundle.putString("username", username);
                 bundle.putString("firstname", firstname);

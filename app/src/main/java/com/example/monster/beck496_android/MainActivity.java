@@ -19,6 +19,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
+
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -29,6 +33,7 @@ public class MainActivity extends AppCompatActivity
     private static final String TAG = "MainActivity";
     private TextView textView;
     User user;
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +58,8 @@ public class MainActivity extends AppCompatActivity
         textView = (TextView) findViewById(R.id.userView);
         Intent intent = getIntent();
         //Fetching email from shared preferences
-        Bundle bundle = intent.getBundleExtra("user");
-        User user = new User();
+        bundle = intent.getBundleExtra("user");
+        user = new User();
         String username = user.setUsername(bundle.getString("username"));
         String firstname = user.setFirstname(bundle.getString("firstname"));
         String lastname = user.setLastname(bundle.getString("lastname"));
@@ -64,9 +69,15 @@ public class MainActivity extends AppCompatActivity
 
         //Showing the current logged in email to textview
         textView.setText(firstname + " " + lastname);
-        textView.append("\n" + "Evlerim:" + house_nos);
 
 
+        LinearLayout ll = (LinearLayout)findViewById(R.id.buttonLayout);
+        LinearLayout.LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        for(int i=0;i < house_ids.size(); i++) {
+            Button myButton = new Button(this);
+            myButton.setText(house_nos.get(i));
+            ll.addView(myButton, lp);
+        }
     }
 
 
@@ -95,6 +106,7 @@ public class MainActivity extends AppCompatActivity
             return true;
         } else if (id == R.id.nav_anouncements) {
             Intent intent = new Intent(MainActivity.this, AnouncementActivity.class);
+            intent.putExtra("user", bundle);
             startActivity(intent);
             return true;
 
@@ -151,4 +163,12 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+//    private void getAnouncements(){
+//        String house_id
+//        String url = Config.DUYURU_URL + "?duyuru=" + username + "&password=" + password;
+//        Log.d("url: ", url);
+//        new LoginActivity.GetJSONTask().execute(url);
+//        Log.d(TAG, "response : " + response);
+//    }
 }

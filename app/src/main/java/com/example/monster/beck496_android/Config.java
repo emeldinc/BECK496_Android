@@ -3,6 +3,7 @@ package com.example.monster.beck496_android;
 public class Config {
     //URL to our login.php file
     public static final String LOGIN_URL = "http://beckdoors.com/Android_API/login.php";
+    public static final String DUYURU_URL = "http://beckdoors.com/Android_API/duyurular.php";
 
     //Keys for email and password as defined in our $_POST['key'] in login.php
     public static final String KEY_EMAIL = "email";
